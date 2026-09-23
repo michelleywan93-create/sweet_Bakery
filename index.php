@@ -1,3 +1,7 @@
+<?php
+require 'config.php';
+requireLogin();
+?>
 <!DOCTYPE html>
 <html lang="ms">
 <head>
