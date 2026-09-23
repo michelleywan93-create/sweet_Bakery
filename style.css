@@ -807,3 +807,71 @@ td {
     .stats-grid { grid-template-columns: 1fr 1fr; }
     .dashboard-grid { grid-template-columns: 1fr; }
 }
+/* ===== CUPCAKE ILLUSTRATION ===== */
+.cupcake-3d {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 3s ease-in-out infinite;
+  padding: 10px;
+}
+
+.cupcake-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cupcake-liner {
+  width: 120px;
+  height: 50px;
+  background: linear-gradient(180deg, #f8e2c8, #f0d0a8);
+  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+  border-radius: 0 0 8px 8px;
+}
+
+.cupcake-frosting {
+  width: 100px;
+  height: 60px;
+  background: linear-gradient(180deg, #f8c8dc, #f0a8c8);
+  border-radius: 50px 50px 10px 10px;
+  position: relative;
+  margin-top: -10px;
+}
+
+.frosting-swirly {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 50px;
+  background: linear-gradient(180deg, #fce4ef, #f8c8dc);
+  border-radius: 50px 50px 0 0;
+}
+
+.cupcake-sprinkles {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  font-size: 12px;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.cupcake-cherry {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
