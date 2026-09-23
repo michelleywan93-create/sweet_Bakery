@@ -1,0 +1,38 @@
+-- Buat Pangkalan Data
+CREATE DATABASE IF NOT EXISTS sweetstock_db;
+USE sweetstock_db;
+
+-- Jadual Pengguna
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Jadual Inventori
+CREATE TABLE inventory (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    stock DECIMAL(10,2) DEFAULT 0,
+    unit VARCHAR(20) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    minimum DECIMAL(10,2) DEFAULT 5,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Jadual Pesanan
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    order_no VARCHAR(20) NOT NULL,
+    details TEXT NOT NULL,
+    status ENUM('Pending','Preparing','Completed') DEFAULT 'Pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
