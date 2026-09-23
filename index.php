@@ -42,13 +42,21 @@ requireLogin();
         </button>
       </nav>
       <div class="sidebar-footer">
-        <div class="user-card">
-          <div class="avatar">QA</div>
-          <div>
-            <strong>Qistina Admin</strong>
-            <span>Administrator</span>
-          </div>
-        </div>
+       <div class="user-card">
+  <div class="avatar">
+    <?php 
+    $nama_penuh = $_SESSION['full_name'];
+    $huruf1 = strtoupper(mb_substr($nama_penuh, 0, 1));
+    $perkataan = explode(' ', trim($nama_penuh));
+    $huruf2 = isset($perkataan[1]) ? strtoupper(mb_substr($perkataan[1], 0, 1)) : '';
+    echo $huruf1 . $huruf2;
+    ?>
+  </div>
+  <div>
+    <strong><?= htmlspecialchars($_SESSION['full_name']) ?></strong>
+    <span><a href="logout.php" style="color:#f0c8dc;text-decoration:none;">Log Keluar</a></span>
+  </div>
+</div>
       </div>
     </aside>
     <main class="main-content">
