@@ -296,47 +296,88 @@ input, select {
     max-width: 500px;
 }
 
-/* Kek 3D */
 .hero-illustration {
-    padding: 20px;
+    padding: 10px;
+    min-width: 160px;
+    display: flex;
+    justify-content: center;
 }
-.cake-3d {
-    width: 140px;
+
+/* ===== CUPCAKE ILLUSTRATION ===== */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.cupcake-3d {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column;
+    width: 150px;
+    height: 180px;
+    animation: float 3s ease-in-out infinite;
+    z-index: 10;
+}
+
+.cupcake-wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: float 3s ease-in-out infinite;
 }
-@keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+.cupcake-liner {
+    width: 120px;
+    height: 50px;
+    background: linear-gradient(180deg, #f8e2c8, #f0d0a8);
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+    border-radius: 0 0 8px 8px;
 }
-.cake-layer {
-    width: 100%;
-    height: 28px;
-    background: linear-gradient(90deg, #f0c8dc, #e8a8c8);
-    border-radius: 4px;
-    box-shadow: inset 0 -4px 0 rgba(0,0,0,0.08);
-}
-.cake-layer:nth-child(2) { width: 90%; background: linear-gradient(90deg, #d898b8, #c878a8); }
-.cake-layer:nth-child(3) { width: 80%; background: linear-gradient(90deg, #b86898, #a85888); }
-.cake-top {
-    width: 70%;
-    height: 32px;
-    background: linear-gradient(90deg, #984878, #883868);
-    border-radius: 16px 16px 4px 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+.cupcake-frosting {
+    width: 100px;
+    height: 60px;
+    background: linear-gradient(180deg, #f8c8dc, #f0a8c8);
+    border-radius: 50px 50px 10px 10px;
     position: relative;
+    margin-top: -10px;
 }
-.cherry {
-    width: 12px;
-    height: 12px;
-    background: #e63960;
-    border-radius: 50%;
+
+.frosting-swirly {
     position: absolute;
-    top: -6px;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 50px;
+    background: linear-gradient(180deg, #fce4ef, #f8c8dc);
+    border-radius: 50px 50px 0 0;
+}
+
+.cupcake-sprinkles {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 3px;
+    font-size: 11px;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.cupcake-cherry {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 26px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
 }
 
 /* ===== STATISTIK ===== */
@@ -806,72 +847,4 @@ td {
     .form-grid { grid-template-columns: 1fr; }
     .stats-grid { grid-template-columns: 1fr 1fr; }
     .dashboard-grid { grid-template-columns: 1fr; }
-}
-/* ===== CUPCAKE ILLUSTRATION ===== */
-.cupcake-3d {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: float 3s ease-in-out infinite;
-  padding: 10px;
-}
-
-.cupcake-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.cupcake-liner {
-  width: 120px;
-  height: 50px;
-  background: linear-gradient(180deg, #f8e2c8, #f0d0a8);
-  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
-  border-radius: 0 0 8px 8px;
-}
-
-.cupcake-frosting {
-  width: 100px;
-  height: 60px;
-  background: linear-gradient(180deg, #f8c8dc, #f0a8c8);
-  border-radius: 50px 50px 10px 10px;
-  position: relative;
-  margin-top: -10px;
-}
-
-.frosting-swirly {
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 50px;
-  background: linear-gradient(180deg, #fce4ef, #f8c8dc);
-  border-radius: 50px 50px 0 0;
-}
-
-.cupcake-sprinkles {
-  position: absolute;
-  top: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 4px;
-  font-size: 12px;
-  animation: sparkle 2s ease-in-out infinite;
-}
-
-@keyframes sparkle {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
-
-.cupcake-cherry {
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 24px;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
 }
